@@ -1,0 +1,565 @@
+/**
+ * @Main scss for (Template/Project Name)
+ * @project     - Project Name
+ * @author      - 
+ * @created_by  - kawsar bin siraj
+ * @created_at  - 
+ * @modified_by -
+ */
+
+/* fonts import */
+@import url("https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400;500;600;700;800;900&display=swap");
+// to use  : font-family: 'Jost', sans-serif;
+/* fonts import -END */
+
+/* reset, root */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    background-color: #fff;
+    font-family: "Jost", sans-serif;
+}
+
+:root {
+    --clr-red: #e1251b;
+    --clr-dark: #4f5a5e;
+    --clr-deep-red: #d60708;
+    --clr-black: #010101;
+}
+
+.container {
+    @media (min-width: 1400px) {
+        max-width: 1110px;
+    }
+}
+
+/* reset, root - END */
+
+/* helper , base classes */
+.wow {
+    visibility: hidden;
+}
+
+.is-rounded {
+    border-radius: 6px;
+}
+
+.is-drop-shadow {
+    box-shadow: 0px 10px 30px #ededef;
+}
+
+.fw-medium {
+    font-weight: 500;
+}
+
+.fw-semi-bold {
+    font-weight: 600;
+}
+
+.form-control {
+    --height: 45px;
+    height: var(--height);
+}
+
+@media (max-width: 991px) {
+    .section-caption {
+        font-size: 16px !important;
+    }
+}
+
+.box-shadow-0 {
+    box-shadow: none;
+
+    &:focus {
+        box-shadow: none;
+    }
+}
+
+.form-control {
+    border-color: transparent;
+    padding-left: 18px;
+    color: var(--clr-dark);
+
+    &:focus {
+        border-color: var(--clr-red);
+    }
+}
+
+.section-padding {
+    padding-top: 100px;
+    padding-bottom: 100px;
+
+    @media (max-width: 991px) {
+        padding-top: 70px;
+        padding-bottom: 70px;
+    }
+}
+
+.is-bg-img {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center top;
+}
+
+.text-danger {
+    color: var(--clr-red);
+}
+
+.text-dark {
+    color: var(--clr-dark);
+}
+
+.bg-dark-gray {
+    background-color: rgba(41, 41, 41, 1);
+}
+
+.btn-danger {
+    position: relative;
+    background-color: var(--clr-red);
+    transition: all 0.2s linear;
+    z-index: 10;
+
+    &::after {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        content: "";
+        width: 0px;
+        height: 100%;
+        background-color: var(--clr-black);
+        border-radius: 6px;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.2s linear;
+        z-index: -1;
+    }
+    &:hover {
+        border-color: var(--clr-black);
+        &::after {
+            opacity: 1;
+            visibility: visible;
+            width: 100%;
+        }
+    }
+}
+
+.btn-dark {
+    transition: all 0.3s linear;
+
+    &:hover {
+        background-color: var(--clr-red);
+        border-color: var(--clr-red);
+    }
+}
+
+ul.trickery-benefits-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li.benefits-list-item {
+        position: relative;
+
+        + li.benefits-list-item {
+            margin-top: 20px;
+        }
+
+        > img.list-icon {
+            position: absolute;
+            left: 0;
+            top: 0px;
+        }
+
+        padding-left: 35px;
+        font-size: 16px;
+        font-weight: 400;
+        color: var(--clr-dark);
+    }
+}
+
+/* helper , base classes  - END*/
+
+/* css for header */
+.header {
+    .navbar {
+        button.navbar-toggler {
+            box-shadow: none !important;
+        }
+
+        .nav-item {
+            .nav-link:not(.btn) {
+                font-size: 15px;
+                color: var(--clr-dark);
+                font-weight: 500;
+                position: relative;
+                transition: all 0.3s linear;
+
+                @media (min-width: 992px) {
+                    &::after {
+                        content: "";
+                        display: block;
+                        position: absolute;
+                        width: 0;
+                        height: 2px;
+                        right: 0;
+                        top: calc(100% + 22px);
+                        background-color: var(--clr-red);
+                        transition: inherit;
+                    }
+                }
+
+                &.active,
+                &:hover {
+                    color: var(--clr-red);
+
+                    &::after {
+                        width: 100%;
+                        left: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* css for header - END*/
+
+/* css for why-choose-autoplanet */
+.why-choose-autoplanet {
+    .autoplanet-grid {
+        @media (min-width: 1200px) {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+
+            .autoplanet-grid-item {
+                width: 100%;
+            }
+        }
+
+        .autoplanet-widget {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--clr-dark);
+            line-height: 1.4;
+        }
+    }
+}
+
+.autoplanet-widget {
+    transition: all 0.4s;
+    position: relative;
+    overflow: hidden;
+
+    &::after {
+        display: block;
+        position: absolute;
+        content: "";
+        background-color: var(--clr-red);
+        width: 2px;
+        left: 0;
+        height: 0;
+        top: 0;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.4s linear;
+    }
+
+    &::before {
+        display: block;
+        content: "";
+        position: absolute;
+        background-color: var(--clr-red);
+        width: 0px;
+        left: 0;
+        height: 2px;
+        bottom: 0;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.4s linear;
+    }
+
+    img {
+        transform: scale(1);
+        transition: all 0.4s linear;
+    }
+
+    &:hover {
+        img {
+            transform: scale(0.9);
+        }
+
+        &::after {
+            opacity: 1;
+            visibility: visible;
+            height: 100%;
+            top: 100%;
+        }
+
+        &::before {
+            opacity: 1;
+            visibility: visible;
+            width: 100%;
+        }
+    }
+}
+
+/* css for banner-intro - END*/
+
+/* css for top-car-insurance-company*/
+.top-car-insurance-company {
+    .insurance-company-grid {
+        gap: 30px;
+
+        .insurance-company-grid-item {
+            transition: all 0.3s linear;
+
+            img {
+                transform: scale(1);
+                transition: all 0.3s linear;
+            }
+
+            &:hover {
+                border-color: var(--clr-deep-red) !important;
+
+                img {
+                    transform: scale(0.9);
+                }
+            }
+        }
+
+        @media (max-width: 991px) {
+            gap: 25px;
+        }
+
+        @media (min-width: 1400px) {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+
+            .insurance-company-grid-item {
+                width: 100%;
+            }
+        }
+
+        .insurance-company-grid-item {
+            --grid-size: 160px;
+            width: var(--grid-size);
+            height: var(--grid-size);
+            border-radius: 100%;
+            display: grid;
+            place-items: center;
+        }
+    }
+}
+
+/* css for top-car-insurance-company - END*/
+
+/* css for how-to-car-insurance */
+.how-to-car-insurance {
+    .steps {
+        .timeline {
+            list-style: none;
+            padding: 0;
+            position: relative;
+
+            &:before {
+                top: 0;
+                bottom: 0;
+                position: absolute;
+                content: " ";
+                border-style: dashed;
+                border-color: var(--clr-red);
+                border-width: 1px;
+                left: 50%;
+                margin-left: -1.5px;
+                transition: all 0.3s;
+
+                @media (max-width: 991px) {
+                    left: 25px;
+                }
+            }
+
+            > li {
+                &:hover {
+                    .timeline-badge {
+                        background-color: #fff !important;
+                        border-color: var(--clr-deep-red);
+                    }
+                }
+                margin-bottom: 56px;
+                position: relative;
+
+                &::before,
+                &::after {
+                    content: " ";
+                    display: table;
+                    clear: both;
+                }
+
+                > {
+                    .timeline-panel {
+                        width: 46%;
+                        float: left;
+                        position: relative;
+
+                        @media (max-width: 991px) {
+                            width: 100%;
+                            float: none;
+                            padding-left: 70px !important;
+                        }
+                    }
+
+                    .timeline-badge {
+                        color: transparent;
+                        width: 90px;
+                        height: 90px;
+                        line-height: 86px;
+                        text-align: center;
+                        position: absolute;
+                        top: 0;
+                        left: 50%;
+                        margin-left: -45px;
+                        z-index: 100;
+                        border-radius: 50%;
+                        transition: all 0.4s linear;
+                        border-style: dashed;
+                        border-color: none !important;
+                        border-width: 1px;
+
+                        @media (max-width: 991px) {
+                            left: 0;
+                            width: 50px;
+                            height: 50px;
+                            line-height: 46px;
+                            margin-left: 0;
+                        }
+                    }
+                }
+
+                &.timeline-inverted > .timeline-panel {
+                    float: right;
+
+                    @media (max-width: 991px) {
+                        float: none;
+                    }
+                }
+
+                @media (max-width: 991px) {
+                    margin-bottom: 40px;
+                }
+            }
+        }
+
+        .timeline-badge {
+            background-color: #f8e4e4 !important;
+
+            > img {
+                width: 26px;
+
+                @media (max-width: 991px) {
+                    width: 16px;
+                }
+            }
+        }
+
+        .timeline-title {
+            margin-top: 0;
+            font-weight: 600;
+            font-size: 24px;
+            line-height: 35px;
+        }
+
+        .timeline-body > {
+            p,
+            ul {
+                margin-bottom: 0;
+            }
+
+            p + p {
+                margin-top: 5px;
+            }
+        }
+    }
+}
+
+/* css for how-to-car-insurance -END*/
+
+/* css for .additional-benefits */
+.additional-benefits {
+    .table-striped {
+        thead > tr {
+            background-color: #fff1f1;
+        }
+
+        tbody > tr:nth-of-type(odd) {
+            --bs-table-accent-bg: #fff;
+        }
+
+        tbody > tr:nth-of-type(even) {
+            --bs-table-accent-bg: #fff9f9;
+        }
+    }
+}
+
+/* css for .additional-benefits - END*/
+
+/* css for filling-a-claim */
+.filling-a-claim {
+    .file-process {
+        .autoplanet-widget {
+            p {
+                font-weight: 600;
+            }
+        }
+    }
+}
+
+/* css for filling-a-claim -END*/
+
+/* css for footer */
+.footer-area {
+    .footer-bottom {
+        .social {
+            li {
+                a {
+                    transition: all 0.3s linear;
+
+                    svg path {
+                        transition: all 0.3s linear;
+                    }
+
+                    &:hover {
+                        svg path {
+                            fill: var(--clr-red) !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* css for footer -END*/
+
+/* css for modal */
+.apply-field {
+    .name {
+        background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='20' height='20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath clip-rule='evenodd' d='M9.987 12.788c-3.223 0-5.975.487-5.975 2.439s2.735 2.456 5.975 2.456c3.223 0 5.975-.488 5.975-2.439 0-1.95-2.734-2.456-5.975-2.456z' stroke='%2379828D' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath clip-rule='evenodd' d='M9.986 10.005a3.83 3.83 0 10-3.83-3.83 3.817 3.817 0 003.803 3.83h.027z' stroke='%2379828D' stroke-width='1.429' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    }
+    .email {
+        background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='20' height='20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14.389 7.55l-3.555 2.863a1.853 1.853 0 01-2.288 0L4.961 7.55' stroke='%2379828D' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath clip-rule='evenodd' d='M5.74 2.917h7.856a4.131 4.131 0 012.983 1.325 4.18 4.18 0 011.105 3.086v5.44a4.181 4.181 0 01-1.105 3.087 4.131 4.131 0 01-2.983 1.325H5.739c-2.433 0-4.073-1.98-4.073-4.412v-5.44c0-2.432 1.64-4.412 4.073-4.412z' stroke='%2379828D' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    }
+    .form-control {
+        background-position: 15px;
+        background-repeat: no-repeat;
+        background-size: 20px;
+        padding-left: 40px;
+        box-shadow: none !important;
+    }
+}
+/* css for modal -END*/
